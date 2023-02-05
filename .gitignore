@@ -8,6 +8,9 @@ dist/
 /node_modules/
 node_modules
 .angular/cache/
+.angular/cache
+frontend/.angular/cache/
+frontend/.angular/cache
 /.angular/cache
 # CircleCI temporary file for cache key computation.
 # See `save_month_to_file` in `.circleci/config.yml`.
