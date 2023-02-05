@@ -1,0 +1,7 @@
+<div class="container" *ngIf="this.dataReceived; else stillLoading">
+    <div class="chart" *ngFor="let symbol of this.stock_symbols">
+        <canvas class="dings" id = "canvas{{symbol}}"></canvas>
+    </div>
+</div>
+
+<ng-template #stillLoading><p>Loading...</p></ng-template>

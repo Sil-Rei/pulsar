@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="display">
+        <div class="option-row">
+            <a class="back" routerLink="/community/featured-portfolios"><i class="bi-arrow-left"></i></a>
+            <a class="report" (click)="report()"><i class="bi-flag"></i></a>
+        </div>
+        
+        <h2 class="portfolio-name">{{ this.portfolioName }}</h2>
+        <h4 class="user" [routerLink]="['/community/profile', this.userid]">by {{this.username}}</h4>
+
+        <div class="main-performance">
+            <i class="bi-zoom-in" [routerLink]="['/community/featured-portfolios', this.username, this.portfolioId, 'main-chart']"></i>
+            <p id="error">no chart yet</p>
+            <canvas  class="main-chart" id = "main"></canvas>
+        </div>
+
+        <div class="balance-container">
+            <p class="balance">balance: <span>{{ this.in_cash }}$</span></p>
+        </div>
+
+       
+        <div class="positions">
+            <div class="all-positions-row">
+                <h3 class="all-positions-header">All positions</h3>
+                <h4 [class.negative-number] = "this.overall_performance < 0" class="overall-performance">{{ this.overall_performance }}%</h4>
+            </div>
+            <div class="position" *ngFor="let position of this.positions">
+                <p class="position-symbol">{{ position["stock_symbol"]}}</p>
+                <div [class.negative-number] = "position['performanceSinceBuy'] < 0">
+                    <p class="position-performance">{{ position["performanceSinceBuy"]}}%</p>
+                </div>
+                <p class="position-buydate">{{ position["buy_datetime"] }}</p>
+            </div>
+        </div>
+    </div>
+</div>

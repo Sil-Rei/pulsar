@@ -1,0 +1,105 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+footer {
+    display: flex;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    padding-top: 10px;
+    background-color: #00204a;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 5px;
+    z-index: -2;
+}
+
+.icons{
+    padding: 0%;
+    display: flex;
+    justify-content: center;
+}
+
+.icons li {
+    
+    list-style: none;   
+}
+
+.icons .bi {
+    color: #fdb44b;
+    cursor: pointer;
+    font-size: 1.75rem;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+.icons .bi:hover {
+    transform: translateY(-10px);
+}
+
+.links {
+    display: flex;
+}
+
+.links li{
+    color: whitesmoke;
+    list-style: none;
+    cursor: pointer;
+    margin: 0 10px;
+
+}
+
+.links a {
+    opacity: 0.75;
+    transform: 1s;
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.links li a:hover{
+    opacity: 1;
+}
+
+
+.copyright {
+    color: rgb(219, 217, 217);
+    text-align: center;
+    margin-top: 3px;
+}
+
+.waves {
+    position: absolute;
+    bottom: 100px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+
+.waves svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+}
+
+.waves .shape-fill {
+    fill: #00204A;
+}
+
+@media(max-width: 600px){
+    .waves {
+        bottom: 50px;
+        z-index: -1;
+    }
+
+    footer {
+        border-radius: 63px 63px 0px 0px;
+    }
+}

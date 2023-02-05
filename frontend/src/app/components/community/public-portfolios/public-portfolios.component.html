@@ -1,0 +1,25 @@
+<div class="container">
+
+    <h1 class="title">trending <span>portfolios</span></h1>
+    <div class="portfolio-container">
+        <div class="portfolio" *ngFor="let portfolio of this.portfolios">
+            <div class="header">
+                <a [routerLink]="['/community/featured-portfolios', portfolio['username'], portfolio['id']]"><h3 class="portfolio-name">{{ portfolio["portfolio_name"]}}</h3></a>
+                <p class="user" [routerLink]="['/community/profile', portfolio['user']]">by {{portfolio["username"]}}</p>
+            </div>
+            <div class="seperator"></div>
+            <div class="positions">
+                <div class="position" *ngFor="let position of portfolio['positions']| slice:0:3">
+                    {{position["stock_symbol"]}}
+                </div>
+            </div>
+            <p class="performance">+21%</p>
+
+            <div class="voting-bar">
+                <i class="bi bi-hand-thumbs-up" id="up.{{portfolio['id']}}" #upvote (click)="clicked('up.'+portfolio['id'])"></i>
+                <p class="votes" id="votes{{portfolio['id']}}">{{portfolio["voting_sum"]}}</p>
+                <i class="bi bi-hand-thumbs-down" id="down.{{portfolio['id']}}" #downvote (click)="clicked('down.'+portfolio['id'])"></i>
+            </div>
+        </div>
+    </div>
+</div>

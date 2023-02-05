@@ -1,0 +1,18 @@
+<div class="outer-container">
+    <div class="name-display">
+        <h1 class="greeting-title">hi, <span>{{ name }}</span></h1>
+    </div>
+    <div class="container">
+
+        <div class="overview">
+
+        </div>
+        <div class="portfolios" *ngIf="this.userPortfolios">
+            <div class="portfolio" *ngFor="let portfolio of this.userPortfolios" [routerLink]='portfolio["portfolio_name"]'>
+                <h3 class="portfolio-name">{{ portfolio["portfolio_name"] }}</h3>
+            </div>
+        </div>
+        <button type="button" routerLink="/profile/portfolios/add-portfolio/" class="add-portfolio-button bi bi-plus"></button>
+    </div>
+</div>
+

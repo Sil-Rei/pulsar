@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="display">
+        <a class="back" [routerLink]="['/profile/portfolios', this.portfolioName]"><i class="bi-arrow-left"></i></a>
+        <h2 class="header">sett<span>ings</span></h2>
+
+        <div class="input-container">
+            <i class="bi bi-pencil"></i>
+            <input type="text" value="{{this.portfolioName}}">
+        </div>
+        <div class="public-check">
+            <p>public:</p>
+            <input type="checkbox" onclick="return false;" [defaultChecked]="this.is_public">
+        </div>
+      
+        <button class="public-button" (click)="makePublic()" [hidden]="this.is_public" type="button">make portfolio public</button>
+        <button class="public-button" (click)="makePrivate()" [hidden]="!this.is_public" type="button">make portfolio private</button>
+        <p id="error-message"></p>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="register-block">
+        <h2 class="heading">new <span>here?</span></h2>
+        <form class="formular" [formGroup]="formGroup" (ngSubmit)="registerProcess()">
+
+            <div class="input-container">
+                <i class="bi bi-person"></i>
+                <input type="text" formControlName="username" placeholder="username">
+            </div>
+
+            <div class="input-container">
+                <i class="bi bi-envelope"></i>
+                <input type="email" formControlName="email" placeholder="email">
+            </div>
+
+            <div class="input-container">
+                <i class="bi bi-key"></i>
+                <input type="password" formControlName="password" placeholder="password">
+            </div>
+
+            <div class="input-container">
+                <i class="bi bi-key"></i>
+                <input type="password" formControlName="passwordCheck" placeholder="repeat password">
+            </div>
+
+            <button class="create-account-button" type="submit">create.</button>
+            <p class="error-message"></p>
+        </form>
+        <div class="links">
+            <p><a routerLink="/sign-in">already a user.</a></p>
+            <p><a routerLink="/reset-password">forgot password.</a></p>
+        </div>
+    </div>
+</div>

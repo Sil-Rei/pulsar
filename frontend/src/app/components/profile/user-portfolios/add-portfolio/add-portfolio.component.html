@@ -1,0 +1,35 @@
+<div class="container">
+    <form class="formular" [formGroup]="formGroup" (ngSubmit)="createPortfolio()">
+        <a class="back" routerLink="/profile/portfolios"><i class="bi-arrow-left"></i></a>
+        <h2 class="heading">add <span>portfolio</span></h2>
+        <div class="input-container">
+            <i class="bi bi-text-center"></i>
+            <input class="portfolio-name-input" type="text" formControlName="portfolio_name" placeholder="portfolio name">
+        </div>
+
+        <div class="input-container">
+            <i class="bi bi-piggy-bank"></i>
+            <input type="number" min="0" max="9999999" oninput="validity.valid||(value='');" formControlName="in_cash" placeholder="seed capital" >
+        </div>
+
+        <div class="fee-choice">
+            <h4 class="optional-info"><span>optional </span>broker settings</h4>
+            <div class="input-container">
+                <i class="bi bi-bank"></i>
+                <input type="number" min="0" max="999" formControlName="buy_fees" placeholder="buy fees">
+            </div>
+           
+            <div class="input-container">
+                <i class="bi bi-bank"></i>
+                <input type="number" min="0" max="999" formControlName="sell_fees" placeholder="sell fees">
+            </div>
+
+            <div class="input-container">
+                <i class="bi bi-bank"></i>
+                <input type="number" min="0" max="999" formControlName="annual_fees" placeholder="annual fees" >
+            </div>
+        </div>
+        <button class="submit-button" type="submit">add</button>
+        <p id="error"></p>
+    </form>
+</div>

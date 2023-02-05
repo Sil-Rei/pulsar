@@ -1,0 +1,190 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.formular {
+    margin-top: 40px;
+    box-shadow: 0px 0px 10px 5px #003f69;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 80vw;
+    height: 60vh;
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.back {
+    font-size: 20px;
+    padding: 3px 10px;
+    color: #fdb44b;
+    background-color: #00204a;
+    border-radius: 15px;
+    margin-top: 10px;
+    transition: all ease-in-out 0.2s;
+}
+
+.back:hover {
+    background-color: #003479;
+}
+
+.header {
+    color: whitesmoke;
+    
+}
+
+.header span {
+    color: #fdb44b;
+    display: inline-block;
+    animation: spin 8s linear infinite 4s;
+}
+
+@keyframes spin {
+    0%{
+        transform: rotate(0);
+    }
+    5% {
+        transform: rotate(720deg);
+    }
+
+    100%{
+        transform: rotate(720deg);
+    }
+}
+
+
+.submit-button{
+    transition: all 0.3s ease 0s;
+    padding: 9px 25px;
+    background-color: #00204a;
+    color: #fdb44b;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-left: 30px;
+    margin-right: 10px;
+    margin-top: 10px;
+ }
+
+.submit-button:hover {
+    background-color: #003479;
+ }
+
+.formular input {
+    padding: 10px 30px;
+    background-color: #005792;
+    color: whitesmoke;
+    border: 3px #00204a solid;
+    border-radius: 0px 15px 15px 0px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+.input-container {
+    display: flex;
+    margin: 10px 0px;
+}
+
+.bi {
+    font-size: 20px;
+    padding: 15px 15px;
+    color: #fdb44b;
+    background-color: #00204a;
+    border-radius: 15px 0px 0px 15px;
+    display: flex;
+    align-self: center;
+}
+
+
+
+
+/* DROPDOWN STYLING */
+.stock-dropdown {
+    margin-right: 110px;
+
+}
+
+/* Edit not found text */
+:host::ng-deep h5{
+    visibility: hidden;
+    content: none;
+}
+
+:host::ng-deep h5::before{
+    visibility: visible;
+    content: "No stocks found with that symbol";
+    font-weight: 200;
+}
+
+:host::ng-deep .dropdown{
+    color: whitesmoke;
+}
+
+:host::ng-deep .filter-textbox{
+    border-bottom: 1px solid #fdb44b !important;
+}
+
+:host::ng-deep .multiselect-dropdown .dropdown-btn {
+    padding: 10px 53px !important;
+    background-color: #005792;
+    color: whitesmoke;
+    border: 3px #00204a solid !important;
+    border-radius: 0px 15px 15px 0px !important;
+}
+
+/* Color of selected item in bar above */
+:host::ng-deep.selected-item {
+    border-radius: 6px !important;
+    background: #00204a !important;
+    color: whitesmoke !important;
+    border: none !important;
+    font-size: 13px !important;
+    padding: 0px 20px !important;
+}
+
+/* Color of checkbox */
+:host::ng-deep .multiselect-item-checkbox input[type=checkbox] + div:before {
+    border: 2px solid #00204a !important;
+    border-radius: 50%;
+}
+
+
+/* Hover effect of entries */
+:host::ng-deep .multiselect-item-checkbox:hover{
+    background-color: #0d68a5 !important; 
+}
+
+/* Color of background */
+:host::ng-deep ng-multiselect-dropdown .dropdown-list{
+    background-color: #005792;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 5px #003f69;
+}
+
+/* hide sccrollbar */
+:host::ng-deep  .filter-textbox{
+    overflow: hidden;
+}
+
+/* Color of searchbar */
+:host::ng-deep .ng-pristine, :host::ng-deep .ng-valid{
+    background-color: #005792;
+}
+
+/* Color of checkbox checkmark */
+:host::ng-deep .multiselect-item-checkbox input[type=checkbox]:checked + div:before {
+    background: #fdb44b !important;
+    content: none;
+}
+

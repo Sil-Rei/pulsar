@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.formular {
+    margin-top: 40px;
+    box-shadow: 0px 0px 10px 5px #003f69;
+    border-radius: 20px;
+    max-width: 500px;
+    min-width: 400px;
+    min-height: 480px;
+    width: 80vw;
+    height: 60vh;
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.back {
+    font-size: 20px;
+    padding: 3px 10px;
+    color: #fdb44b;
+    background-color: #00204a;
+    border-radius: 15px;
+    margin-bottom: -40px;
+    margin-left: 65px;
+    align-self: flex-start;
+}
+
+.back:hover {
+    background-color: #003479;
+}
+
+.heading{
+    margin-top: 5px;
+    color:whitesmoke;
+}
+
+.heading span {
+    display: inline-block;
+    color: #fdb44b;
+    animation: spin 8s linear infinite 4s;
+}
+
+@keyframes spin {
+    0%{
+        transform: rotate(0);
+    }
+    5% {
+        transform: rotate(720deg);
+    }
+
+    100%{
+        transform: rotate(720deg);
+    }
+}
+
+.submit-button{
+    transition: all 0.3s ease 0s;
+    padding: 9px 25px;
+    background-color: #00204a;
+    color: #fdb44b;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-left: 30px;
+    margin-right: 10px;
+    margin-top: 10px;
+ }
+
+.submit-button:hover {
+    background-color: #003479;
+ }
+
+.formular input {
+    padding: 10px 30px;
+    background-color: #005792;
+    color: whitesmoke;
+    border: 3px #00204a solid;
+    border-radius: 0px 15px 15px 0px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+.bi:hover {
+    transform: scale(1.1);
+}
+
+.fee-choice{
+    margin-top: 40px;
+}
+
+.fee-choice .optional-info{
+    color: whitesmoke;
+    opacity: 0.8;
+    font-weight: 600;
+}
+
+.input-container {
+    display: flex;
+    padding: 10px 0px;
+}
+
+.bi {
+    font-size: 20px;
+    padding: 15px 15px;
+    color: #fdb44b;
+    background-color: #00204a;
+    border-radius: 15px 0px 0px 15px;
+    display: flex;
+    align-self: center;
+}
+
+#error {
+    color: whitesmoke;
+}
+
+

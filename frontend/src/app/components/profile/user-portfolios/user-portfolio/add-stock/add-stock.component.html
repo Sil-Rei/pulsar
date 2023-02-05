@@ -1,0 +1,35 @@
+<div class="container">
+   <form class="formular" [formGroup]="formGroup" (ngSubmit)="addStock()">
+        <div class="input-container">
+            <a class="back" [routerLink]="['/profile/portfolios', this.portfolioName]"><i class="bi-arrow-left"></i></a>
+        </div>
+
+        <h2 class="header">add a <span>stock</span></h2>
+        
+        <div class="input-container stock-dropdown">
+            <i class="bi bi-graph-up"></i>
+            <div class="dropdown">
+                <ng-multiselect-dropdown
+                [placeholder]="'which stock'"
+                [settings]="dropdownSettings"
+                [data]="dropdownList"
+                [(ngModel)]="selectedItems"
+                [ngModelOptions]="{standalone: true}">
+                </ng-multiselect-dropdown>
+            </div>
+        </div>
+
+        <div class="input-container">
+            <i class="bi bi-cart2"></i>
+            <input type="number" name="" min="0" max="10000" oninput="validity.valid||(value='');" formControlName="number_of_shares" placeholder="how many">
+        </div>
+        
+        <div class="input-container">
+            <i class="bi bi-calendar4"></i>
+            <input type="datetime-local" min="2019-01-02T00:00" [max]="this.dateToday" formControlName="buy_datetime">
+        </div>
+
+    <button class="submit-button" type="submit">Add</button>
+    <p id="error-message"></p>
+   </form>
+</div>

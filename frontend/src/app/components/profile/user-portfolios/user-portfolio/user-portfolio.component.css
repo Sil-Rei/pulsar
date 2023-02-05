@@ -1,0 +1,201 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.display {
+    margin-top: 40px;
+    box-shadow: 0px 0px 10px 5px #003f69;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 80vw;
+    max-height: 65vh;
+    overflow-y: auto;
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+}
+
+.option-row {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 5px 0px;
+}
+
+.back {
+    font-size: 20px;
+    padding: 3px 10px;
+    color: #fdb44b;
+    background-color: #00204a;
+    border-radius: 15px;
+    margin-left: 30px;   
+    transition: all ease-in-out 0.2s;
+}
+
+.back:hover {
+    background-color: #003479;
+}
+
+.delete{
+    font-size: 20px;
+    padding: 3px 10px;
+    color: whitesmoke;
+    background-color: #7b0616;
+    border-radius: 15px;   
+    cursor: pointer;
+    margin-right: 30px;   
+    transition: all ease-in-out 0.2s;
+}
+
+.delete:hover {
+    background-color: #b5061d;
+}
+
+.options{
+    font-size: 20px;
+    padding: 3px 10px;
+    color: whitesmoke;
+    background-color: #00204a;
+    border-radius: 15px;   
+    cursor: pointer;
+    margin-right: 5px;
+    transition: all ease-in-out 0.2s;
+}
+
+.options:hover {
+    background-color: #003479;
+}
+
+.portfolio-name{
+    color: whitesmoke;
+    text-transform: capitalize;
+    margin-top: -10px;
+}
+
+.main-performance{
+    position: relative;
+}
+
+.bi-zoom-in{
+    color: whitesmoke;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.bi-zoom-in:hover{
+    opacity: 1;
+}
+
+#error{
+    visibility: hidden;
+    color: whitesmoke;
+    opacity: 0.8;
+    position: absolute;
+    top: 40%;
+    left: 35%;
+}
+
+.main-chart {
+    color: white;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 5px #003f69;
+    margin: 10px 0px;
+    transition: box-shadow 200ms linear;
+}
+
+
+.balance {
+    color: whitesmoke;
+    margin-top: 5px;
+}
+
+.balance span{
+    color: #fdb44b;
+    margin-top: 5px;
+}
+
+.positions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 25px;
+}
+
+.position {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 0px 0px 10px 5px #003f69;
+    border-radius: 20px;
+    color: whitesmoke;
+    margin-top: 15px;
+    padding: 10px 0px;
+}
+
+.all-positions-row{
+    display: flex;
+}
+
+.all-positions-header{
+    color: whitesmoke;
+    margin-left: 10px;
+}
+
+.overall-performance{
+    color: whitesmoke;
+    padding-left: 10px;
+    margin-top: 3px;
+    font-weight: 400;
+}
+
+.negative-number{
+    color: rgb(255, 33, 33);
+}
+
+.remove-stock{
+    visibility: hidden;
+    align-self: center;
+    font-size: 18px;
+    background-color: #7b0616;
+    border-radius: 35%;
+    padding: 0px 5px;
+    cursor: pointer;
+}
+
+.position:hover .remove-stock{
+    visibility: visible;
+}
+
+.remove-stock:hover{
+    background-color: #b5061d;
+}
+
+
+.add-stock-button{
+    transition: all 0.3s ease 0s;
+    padding: 10px 25px;
+    background-color: #00204a;
+    color: #fdb44b;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 15px;
+ }
+
+.add-stock-button:hover {
+    background-color: #003479;
+ }
+
