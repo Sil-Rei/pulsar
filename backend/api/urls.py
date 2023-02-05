@@ -11,6 +11,8 @@ urlpatterns = [
     path('token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
+    path("captcha_publickey", get_captcha_public_key),
+
     path("user/data", get_user_data),
     path("user/portfolio_data", get_portfolio_data),
     path("user/add_portfolio", add_portfolio),

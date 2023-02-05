@@ -32,6 +32,7 @@ import { PublicPortfolioComponent } from './components/community/public-portfoli
 import { PublicMainchartComponent } from './components/community/public-portfolios/public-portfolio/public-mainchart/public-mainchart.component';
 import { PublicProfileComponent } from './components/community/public-profile/public-profile.component';
 import { NotificationService } from './services/notification.service';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { NotificationService } from './services/notification.service';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    NgMultiSelectDropDownModule
+    NgMultiSelectDropDownModule,
+    RecaptchaModule, 
   ],
   providers: [
     UserDataService,

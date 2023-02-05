@@ -7,6 +7,7 @@ from ..serializers import Stock_price_table_serializer, Stock_table_serializer
 import datetime
 from itertools import chain
 
+#Checks stock price for a given date
 @api_view(["POST"])
 def check_stock_price(request):
     print(request.data)

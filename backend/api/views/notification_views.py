@@ -20,7 +20,6 @@ def delete_user_notification(request):
     Notification.objects.filter(user=user, id=request.data["notification_id"]).delete()
     return Response("Deleted notification")
 
-
 @api_view(["PATCH"])
 @permission_classes([IsAuthenticated])
 def mark_notifications_read(request):
