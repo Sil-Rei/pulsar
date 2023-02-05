@@ -8,12 +8,22 @@ import { AuthService } from 'src/app/services/auth-service.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
 
+export class RegisterComponent {
   formGroup: FormGroup;
+  recaptchaResponse: string;
+  captchaPublicKey: string;
   constructor(private authService:AuthService, public router:Router) {}
+
   ngOnInit(){
     this.initForm();
+    this.authService.getCaptchaToken().subscribe(res => {
+      this.captchaPublicKey = String(res);
+    });
+  }
+
+  resolved(response: string) {
+    this.recaptchaResponse = response;
   }
 
   initForm(){
@@ -26,6 +36,9 @@ export class RegisterComponent {
   }
 
   displayError(error){
+    if(error["username"] != undefined){
+      error = error["username"];
+    }
     document.getElementsByClassName("error-message")[0].innerHTML= error;
     setTimeout(() => {
       document.getElementsByClassName("error-message")[0].innerHTML = "";
@@ -46,12 +59,12 @@ export class RegisterComponent {
         return;
       }
 
-      this.authService.register(this.formGroup.value).subscribe({
+      this.authService.register({...this.formGroup.value, recaptchaResponse: this.recaptchaResponse}).subscribe({
         next: response =>{
           this.router.navigate(["/sign-in"])
         },
         error: error => {
-          this.displayError(error["error"]["username"]);
+          this.displayError(error["error"]);
         }
     });
       }else{

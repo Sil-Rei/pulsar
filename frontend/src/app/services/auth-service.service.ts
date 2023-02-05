@@ -37,6 +37,10 @@ export class AuthService {
     })
   }
 
+  getCaptchaToken() {
+    return this.http.get(`${apiUrl}captcha_publickey`);
+  }
+
   private tokenExpiresAt(token: string) {
     const expiry = (JSON.parse(window.atob(token.split('.')[1]))).exp;
     return expiry;

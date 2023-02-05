@@ -2,7 +2,6 @@ from rest_framework import serializers
 from base.models import Stock_table, Stock_price_table, Portfolio, Position, Notification
 from base.models import User as Costum_user
 from django.contrib.auth.models import User 
-
 from django.contrib.auth import get_user_model
 UserModel = get_user_model()
 class RegisterSerializer(serializers.ModelSerializer):

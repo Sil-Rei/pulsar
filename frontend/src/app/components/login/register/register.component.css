@@ -81,6 +81,10 @@
     border-radius: 0px 15px 15px 0px;
 }
 
+re-captcha {
+    margin-top: 20px;
+}
+
 .formular {
     display: flex;
     flex-direction: column;

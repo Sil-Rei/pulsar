@@ -24,6 +24,11 @@
             </div>
 
             <button class="create-account-button" type="submit">create.</button>
+            
+            <ng-container *ngIf="captchaPublicKey">
+                <re-captcha (resolved)="resolved($event)" [siteKey]="captchaPublicKey"></re-captcha>
+              </ng-container>              
+
             <p class="error-message"></p>
         </form>
         <div class="links">
