@@ -10,6 +10,7 @@ import { AboutComponent } from './components/footer/footer-links/about/about.com
 import { ContactComponent } from './components/footer/footer-links/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/login/register/register.component';
+import { EnterNewPasswordComponent } from './components/login/reset-password/enter-new-password/enter-new-password.component';
 import { ResetPasswordComponent } from './components/login/reset-password/reset-password.component';
 import { SignInComponent } from './components/login/sign-in/sign-in.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -42,6 +43,7 @@ const routes: Routes = [
   {path: "community/featured-portfolios/:username/:id", component: PublicPortfolioComponent},
   {path: "community/featured-portfolios/:username/:id/main-chart", component: PublicMainchartComponent},
   {path: "community/profile/:userid", component: PublicProfileComponent},
+  {path: "user/reset-password", component: EnterNewPasswordComponent},
 ];
 
 @NgModule({

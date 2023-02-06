@@ -22,10 +22,6 @@ export class RegisterComponent {
     });
   }
 
-  resolved(response: string) {
-    this.recaptchaResponse = response;
-  }
-
   initForm(){
     this.formGroup = new FormGroup({
       username: new FormControl("", [Validators.required]),
@@ -34,6 +30,11 @@ export class RegisterComponent {
       passwordCheck : new FormControl("", [Validators.required])
     })
   }
+
+  resolved(response: string) {
+    this.recaptchaResponse = response;
+  }
+
 
   displayError(error){
     if(error["username"] != undefined){
