@@ -10,21 +10,29 @@ import { apiUrl } from 'src/environments/environments';
 export class UserDataService {
 
   constructor(private http:HttpClient, private router:Router) {
-    }
+  }
 
-   public getUserData(){
+  public resetUserPassword(email: string){
+    return this.http.post(`${apiUrl}user/reset_password`, {email: email});
+  }
+
+  public setNewPassword(password: string, token: string){
+    return this.http.post(`${apiUrl}user/reset_password_confirm`, {password: password, token: token});
+  }
+
+  public getUserData(){
     return this.http.get(`${apiUrl}user/data`);
-   }
+  }
 
-   public getMainGraphData(portfolioName: string){
+  public getMainGraphData(portfolioName: string){
     return this.http.post(`${apiUrl}user/maingraph_data`, {portfolio_name:portfolioName});
-   }
+  }
 
-   public getPortfolioData(portfolioName: string){
-    return this.http.post(`${apiUrl}user/portfolio_data`, {portfolio_name:portfolioName});
-   }
+  public getPortfolioData(portfolioName: string){
+  return this.http.post(`${apiUrl}user/portfolio_data`, {portfolio_name:portfolioName});
+  }
 
-   public deletePortfolio(portfolioName: string){
+  public deletePortfolio(portfolioName: string){
     const options = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -36,9 +44,9 @@ export class UserDataService {
       this.http.delete(`${apiUrl}user/delete_portfolio`, options).subscribe(()=>{
         this.router.navigate(["/profile/portfolios"]);
       });
-   }
+  }
 
-   public deleteStock(portfolioName: string, stockSymbol: string){
+  public deleteStock(portfolioName: string, stockSymbol: string){
     const options = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -51,5 +59,5 @@ export class UserDataService {
       this.http.delete(`${apiUrl}user/delete_stock`, options).subscribe(()=>{
         window.location.reload();                             //TODO fix reload
       });
-   }
+  }
 }

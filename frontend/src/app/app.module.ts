@@ -33,6 +33,7 @@ import { PublicMainchartComponent } from './components/community/public-portfoli
 import { PublicProfileComponent } from './components/community/public-profile/public-profile.component';
 import { NotificationService } from './services/notification.service';
 import { RecaptchaModule } from 'ng-recaptcha';
+import { EnterNewPasswordComponent } from './components/login/reset-password/enter-new-password/enter-new-password.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { RecaptchaModule } from 'ng-recaptcha';
     PublicPortfolioComponent,
     PublicMainchartComponent,
     PublicProfileComponent,
+    EnterNewPasswordComponent,
   ],
   imports: [
     BrowserModule,
