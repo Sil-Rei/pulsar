@@ -31,34 +31,34 @@ export class AnalysisComponent {
   }
 
   prepareStockDistributionChart(positions: Array<any>){
-    let distrbutionChartNames: Array<any> = [];
-    let distrbutionChartPercentages: Array<any> = [];
+    let distributionChartNames: Array<any> = [];
+    let distributionChartPercentages: Array<any> = [];
 
     let moneyInvestedTotal: number = this.getTotalInvestedMoney(positions);
 
     for(let i = 0; i < positions.length; i ++){
-      distrbutionChartNames.push(positions[i]["full_name"]);
-      distrbutionChartPercentages.push(((positions[i]["latest_price"] * positions[i]["number_of_shares"]) / moneyInvestedTotal)*100);
+      distributionChartNames.push(positions[i]["full_name"]);
+      distributionChartPercentages.push(((positions[i]["latest_price"] * positions[i]["number_of_shares"]) / moneyInvestedTotal)*100);
     }
-    this.renderPieChart(distrbutionChartNames, distrbutionChartPercentages, "Percentage", "stock-distribution");
+    this.renderPieChart(distributionChartNames, distributionChartPercentages, "Percentage", "stock-distribution");
   }
 
-  prepareSectorDistributionChart(positions){
-    let distrbutionChartSectors: Array<any> = [];
-    let distrbutionChartPercentages: Array<any> = [];
-
-    let moneyInvestedTotal: number = this.getTotalInvestedMoney(positions);
-
-    for(let i = 0; i < positions.length; i ++){
+  prepareSectorDistributionChart(positions) {
+    let distributionChart = {};
+    let moneyInvestedTotal = this.getTotalInvestedMoney(positions);
+  
+    for (let i = 0; i < positions.length; i++) {
       let sector = positions[i]["sector"];
-      if(!distrbutionChartSectors.includes(sector)){
-        distrbutionChartSectors.push(sector);
-        distrbutionChartPercentages.push(0);
+      if (!distributionChart.hasOwnProperty(sector)) {
+        distributionChart[sector] = 0;
       }
-      let sectorIndex = distrbutionChartSectors.indexOf(sector);
-      distrbutionChartPercentages[sectorIndex] += (((positions[i]["latest_price"] * positions[i]["number_of_shares"]) / moneyInvestedTotal)*100);
+      distributionChart[sector] += ((positions[i]["latest_price"] * positions[i]["number_of_shares"]) / moneyInvestedTotal) * 100;
     }
-    this.renderHBarChart(distrbutionChartSectors, distrbutionChartPercentages, "Percentage", "sector-distribution");
+  
+    let sortedSectors = Object.keys(distributionChart).sort((a, b) => distributionChart[b] - distributionChart[a]);
+    let sortedPercentages = sortedSectors.map(sector => distributionChart[sector]);
+  
+    this.renderHBarChart(sortedSectors, sortedPercentages, "Percentage", "sector-distribution");
   }
 
   public renderPieChart(xData, yData, symbol, chartId){
@@ -69,6 +69,7 @@ export class AnalysisComponent {
         datasets: [{
           label: symbol,
           data: yData,
+          //backgroundColor: ["#fdb44b", "#fd9f1c", "#fdbf68", "#e38502", "#fed49a"],
         }
         ]
       },
