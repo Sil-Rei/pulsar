@@ -72,7 +72,10 @@ class Position(models.Model):
 # General db
 class Stock_table(models.Model):
     ticker_symbol = models.CharField(max_length=12)
+    full_name = models.CharField(max_length=30)
+    sector = models.CharField(max_length=30)
     first_date_entry = models.DateField(blank=True, null=True)
+
     
     def __str__(self):
         return self.ticker_symbol

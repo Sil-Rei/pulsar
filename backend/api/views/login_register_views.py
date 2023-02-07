@@ -10,7 +10,7 @@ from django.contrib.auth.models import User as Django_user
 from ..emailutils import Emailutils
 import os, bcrypt, requests
 from django.utils import timezone
-from django.contrib.auth.hashers import make_password, check_password
+
 
 
 # Login/ Register API
@@ -39,23 +39,24 @@ def validate_captcha(captcha_response):
 
 @api_view(["POST"])
 def register_user(request):
-    print(request.data)
+    
+    if len(Django_user.objects.filter(email=request.data["email"])) != 0:
+        return Response("a user with that email already exists", status=status.HTTP_400_BAD_REQUEST) 
+
     serializer = RegisterSerializer(data=request.data)
 
-    user = User.objects.get(username=request.data["username"])
-
     if "recaptchaResponse" not in request.data:
-        return Response("Unvalid Captcha", status=status.HTTP_401_UNAUTHORIZED)
+        return Response("unvalid Captcha", status=status.HTTP_401_UNAUTHORIZED)
     captcha_response = request.data["recaptchaResponse"]
 
     if not validate_captcha(captcha_response):
-        return Response({"error": "Captcha validation failed"}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"error": "captcha validation failed"}, status=status.HTTP_400_BAD_REQUEST)
     
     if serializer.is_valid():
         serializer.save()
         User.objects.create(username=request.data["username"])
+        user = User.objects.get(username=request.data["username"])
         Notification.objects.create(user=user, message=f"Welcome {user.username} to polar.! \nLook around or go to the portfolio tab to create your own today")
-   
         return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
