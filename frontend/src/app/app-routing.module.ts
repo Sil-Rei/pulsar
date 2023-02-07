@@ -16,6 +16,7 @@ import { SignInComponent } from './components/login/sign-in/sign-in.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AddPortfolioComponent } from './components/profile/user-portfolios/add-portfolio/add-portfolio.component';
 import { AddStockComponent } from './components/profile/user-portfolios/user-portfolio/add-stock/add-stock.component';
+import { AnalysisComponent } from './components/profile/user-portfolios/user-portfolio/analysis/analysis.component';
 import { MainChartComponent } from './components/profile/user-portfolios/user-portfolio/main-chart/main-chart.component';
 import { PortfolioSettingsComponent } from './components/profile/user-portfolios/user-portfolio/portfolio-settings/portfolio-settings.component';
 import { UserPortfolioComponent } from './components/profile/user-portfolios/user-portfolio/user-portfolio.component';
@@ -38,6 +39,7 @@ const routes: Routes = [
   {path: "profile/portfolios/:name/main-chart", component: MainChartComponent},
   {path: "profile/portfolios/:name/add-stock", component:AddStockComponent},
   {path: "profile/portfolios/:name/settings", component: PortfolioSettingsComponent},
+  {path: "profile/portfolios/:name/analysis", component: AnalysisComponent},
   {path: "concept", component: ConceptComponent},
   {path: "community/featured-portfolios", component: PublicPortfoliosComponent},
   {path: "community/featured-portfolios/:username/:id", component: PublicPortfolioComponent},

@@ -22,12 +22,16 @@ def get_portfolio_data(request):
     if(seri.data == []):
         return Response("Error, no such user or user has no portfolios")
     sliced_seri = [port for port in seri.data[0]["portfolios"] if port["portfolio_name"] == portfolio_name_request]
-    
-    #append current price to each position
+
+    #append current price to each position and fullname and sector info
     for positionIndex in range(len(sliced_seri[0]["positions"])):
         position = sliced_seri[0]["positions"][positionIndex]
         latest_position_price = Stock_price_table.objects.filter(ticker_symbol=position["stock_symbol"]).latest("date_time")
+        full_name = Stock_table.objects.get(ticker_symbol=position["stock_symbol"]).full_name
+        sector_info = Stock_table.objects.get(ticker_symbol=position["stock_symbol"]).sector
         sliced_seri[0]["positions"][positionIndex]["latest_price"] = latest_position_price.price
+        sliced_seri[0]["positions"][positionIndex]["full_name"] = full_name
+        sliced_seri[0]["positions"][positionIndex]["sector"] = sector_info
     return Response(sliced_seri)
 
 

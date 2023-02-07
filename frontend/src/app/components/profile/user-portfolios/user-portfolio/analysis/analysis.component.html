@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="display">
+        <div class="option-row">
+            <a class="back" [routerLink]="['/profile/portfolios', this.portfolioName]"><i class="bi-arrow-left"></i></a>
+            <h2 class="header">ana<span>lysis</span></h2>
+            <div class="line"></div>
+        </div>
+
+        <div class="chart-container stock-distribution">
+            <h3>stock distribution</h3>
+            <canvas class="stock-distribution" id="stock-distribution"></canvas>
+        </div>
+       
+        <div class="chart-container sector-distribution">
+            <h3>sector distribution</h3>
+            <canvas class="stock-distribution" id="sector-distribution"></canvas>
+        </div>
+
+        <p id="error-message"></p>
+    </div>
+</div>
