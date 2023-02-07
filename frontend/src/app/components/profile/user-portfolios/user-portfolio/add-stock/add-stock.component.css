@@ -187,4 +187,7 @@ input[type=number] {
     background: #fdb44b !important;
     content: none;
 }
+:host::ng-deep ul {
+    overflow-x: hidden !important;
+}
 

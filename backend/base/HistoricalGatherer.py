@@ -19,20 +19,23 @@ class HistoricalGatherer():
             if Stock_table.objects.get(ticker_symbol=symbol_name).first_date_entry != None:
                 print(symbol_name + " skipped.")
                 continue
-            symbol = yf.Ticker(symbol_name)
-            historical_data = symbol.history(start="2019-01-01", period="max")
+            try:
+                symbol = yf.Ticker(symbol_name)
+                historical_data = symbol.history(start="2019-01-01", period="max")
 
-            # get first entry date and save it to db
-            first_date_entry = historical_data.index[0].date()
-            stock = Stock_table.objects.get(ticker_symbol=symbol_name)
-            stock.first_date_entry = first_date_entry
-            stock.save()
+                # get first entry date and save it to db
+                first_date_entry = historical_data.index[0].date()
+                stock = Stock_table.objects.get(ticker_symbol=symbol_name)
+                stock.first_date_entry = first_date_entry
+                stock.save()
 
-            # loop through history data and add to stockpricetable
-            for index, row in historical_data.iterrows():
-                Stock_price_table.objects.create(ticker_symbol=symbol_name, price=round(row["Close"],2), date_time=index)
+                # loop through history data and add to stockpricetable
+                for index, row in historical_data.iterrows():
+                    Stock_price_table.objects.create(ticker_symbol=symbol_name, price=round(row["Close"],2), date_time=index)
 
-            print(symbol_name + " added")
+                print(symbol_name + " added")
+            except Exception as e:
+                print(e)
             
             
 

@@ -34,9 +34,11 @@ export class AddStockComponent implements OnInit{
     // Get all stock symbols from backend and and them to the dropdown list
     this.stockdata.getAvailableStocks().subscribe(data => {
       let dataAsArray = Object.entries(data);
+      console.log(dataAsArray);
       for(let i = 0; i < dataAsArray.length; i++){
         let symbol = dataAsArray[i][1]["ticker_symbol"];
-        this.dropdownList = this.dropdownList.concat({item_id: i+1, item_text: symbol});
+        let fullName = dataAsArray[i][1]["full_name"];
+        this.dropdownList = this.dropdownList.concat({item_id: i+1, item_text: fullName + " [" + symbol + "]"});
       }
     })
     // Settings for dropdown, single selection so you cant select multiple symbols
@@ -74,7 +76,7 @@ export class AddStockComponent implements OnInit{
     if(this.formGroup.valid && this.selectedItems[0]["item_text"] != null){
        //Append portfolioname and stockname for backend
         this.formGroup.value["portfolio_name"] = this.portfolioName;
-        this.formGroup.value["stock_symbol"] = this.selectedItems[0]["item_text"];
+        this.formGroup.value["stock_symbol"] = String(this.selectedItems[0]["item_text"]).split("[")[1].split("]")[0];
 
         // get stock price for that day to check if balance is high enough
         this.stockdata.getStockPriceForDate(this.formGroup.value["stock_symbol"], this.formGroup.value["buy_datetime"]).subscribe({
