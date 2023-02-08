@@ -35,6 +35,25 @@
     opacity: 0.7;
 }
 
+#email-verified{
+    color: rgb(224, 46, 46);
+}
+
+.resend-email-button{
+    transition: all 0.3s ease 0s;
+    padding: 9px 25px;
+    background-color: #00204a;
+    color: #fdb44b;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 10px;
+ }
+
+.resend-email-button:hover {
+    background-color: #003479;
+ }
+
 .public-portfolio-block{
     margin-top: 30px;
 }

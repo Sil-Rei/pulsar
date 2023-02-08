@@ -95,8 +95,8 @@ export class AnalysisComponent {
           label: symbol,
           data: yData,
           barThickness: 35,
-          backgroundColor: ["#fdb44b", "#00204a"],
-          borderColor:  ["#fdb44b", "#00204a"]
+          backgroundColor: ["#fdb44b"],
+          borderColor:  ["#fdb44b"]
         }
         ]
       },

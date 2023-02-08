@@ -15,6 +15,7 @@ urlpatterns = [
 
     path("user/data", get_user_data),
     path("user/validate_email", validate_email),
+    path("user/new_verification_email", resend_verification_email),
     path("user/reset_password", reset_password),
     path("user/reset_password_confirm", reset_password_confirm, name="reset_password_confirm"),
     path("user/portfolio_data", get_portfolio_data),

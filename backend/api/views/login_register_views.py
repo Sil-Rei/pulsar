@@ -3,7 +3,8 @@ from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.tokens import AccessToken
 from rest_framework import status
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response 
 from ..serializers import RegisterSerializer
 from base.models import User, Notification, PasswordResetToken, EmailValidationToken
@@ -58,6 +59,7 @@ def register_user(request):
         user = User.objects.create(username=request.data["username"])
         user.save()
         django_user = Django_user.objects.get(id=user.id)
+        Notification.objects.create(user=user, message=f"Don't forget to verify your email", is_important=True)
         Notification.objects.create(user=user, message=f"Welcome {user.username} to polar.! \nLook around or go to the portfolio tab to create your own today")
 
         #send verification email
@@ -97,6 +99,24 @@ def validate_email(request):
     user.save()
     email_token.delete()
     return Response("Email verified.", status=status.HTTP_200_OK)
+
+@api_view(["GET"])
+@permission_classes([IsAuthenticated])
+def resend_verification_email(request):
+        #send verification email
+        user = User.objects.get(id=request.user.id)
+        django_user = Django_user.objects.get(id=user.id)
+        token = str(AccessToken.for_user(django_user))
+        
+        link = str(os.getenv("APIURL")) + "user/validate_email" +"?token=" + str(token)
+
+        to = django_user.email
+        subject = "pulsar. - Verify Your Email Address"
+        body = f"Dear {user.username},\n\nThank you for signing up for pulsar. To start using all of our features, please verify your email address by clicking on the link below.\n\nVerification Link: {link}\n\nIf you didn't sign up for Pulsar, you can safely ignore this email.\n\nBest regards,\nYour pulsar. Team"
+        EmailValidationToken.objects.filter(user=user).delete()
+        EmailValidationToken.objects.create(user=User.objects.get(id=user.id), token=token)
+        Emailutils.send_email(to, subject, body)
+        return Response("resend mail", status=status.HTTP_202_ACCEPTED)
 
 @api_view(["GET"])
 def get_captcha_public_key(request):
