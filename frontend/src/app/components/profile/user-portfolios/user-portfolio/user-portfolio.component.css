@@ -45,6 +45,21 @@
     background-color: #003479;
 }
 
+.analysis{
+    font-size: 20px;
+    padding: 3px 10px;
+    color: #00204a;
+    background-color: #fdb44b;
+    border-radius: 15px;   
+    cursor: pointer;
+    margin-right: 5px;   
+    transition: all ease-in-out 0.2s;
+}
+
+.analysis:hover {
+    background-color: #ed9d2d;
+}
+
 .delete{
     font-size: 20px;
     padding: 3px 10px;

@@ -18,4 +18,5 @@ class Emailutils:
         server.ehlo()
         server.login(email, password)
         server.sendmail(email, to, msg.as_string())
+        print("email send to: " + to)
         server.close()

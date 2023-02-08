@@ -14,6 +14,7 @@ urlpatterns = [
     path("captcha_publickey", get_captcha_public_key),
 
     path("user/data", get_user_data),
+    path("user/validate_email", validate_email),
     path("user/reset_password", reset_password),
     path("user/reset_password_confirm", reset_password_confirm, name="reset_password_confirm"),
     path("user/portfolio_data", get_portfolio_data),

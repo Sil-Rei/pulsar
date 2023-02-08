@@ -6,6 +6,7 @@ from datetime import datetime
 class User(models.Model):
     username = models.CharField(max_length=25)
     member_since = models.DateField(default=datetime.now, blank=True, null=True)
+    verified_email = models.BooleanField(default=False)
 
     def __str__(self):
         return self.username
@@ -15,6 +16,10 @@ class PasswordResetToken(models.Model):
     token_hash = models.CharField(max_length=100, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
+class EmailValidationToken(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    token = models.CharField(max_length=100, unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
 class Notification(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

@@ -12,6 +12,10 @@ export class UserDataService {
   constructor(private http:HttpClient, private router:Router) {
   }
 
+  public validateEmail(token: string){
+    return this.http.post(`${apiUrl}user/validate_email`, {token: token});
+  }
+
   public resetUserPassword(email: string){
     return this.http.post(`${apiUrl}user/reset_password`, {email: email});
   }
