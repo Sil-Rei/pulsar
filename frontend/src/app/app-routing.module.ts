@@ -13,6 +13,7 @@ import { RegisterComponent } from './components/login/register/register.componen
 import { EnterNewPasswordComponent } from './components/login/reset-password/enter-new-password/enter-new-password.component';
 import { ResetPasswordComponent } from './components/login/reset-password/reset-password.component';
 import { SignInComponent } from './components/login/sign-in/sign-in.component';
+import { ValidateEmailComponent } from './components/login/validate-email/validate-email.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AddPortfolioComponent } from './components/profile/user-portfolios/add-portfolio/add-portfolio.component';
 import { AddStockComponent } from './components/profile/user-portfolios/user-portfolio/add-stock/add-stock.component';
@@ -46,6 +47,7 @@ const routes: Routes = [
   {path: "community/featured-portfolios/:username/:id/main-chart", component: PublicMainchartComponent},
   {path: "community/profile/:userid", component: PublicProfileComponent},
   {path: "user/reset-password", component: EnterNewPasswordComponent},
+  {path: "user/validate_email", component: ValidateEmailComponent},
 ];
 
 @NgModule({

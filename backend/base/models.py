@@ -6,6 +6,7 @@ from datetime import datetime
 class User(models.Model):
     username = models.CharField(max_length=25)
     member_since = models.DateField(default=datetime.now, blank=True, null=True)
+    verified_email = models.BooleanField(default=False)
 
     def __str__(self):
         return self.username

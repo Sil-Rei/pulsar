@@ -35,6 +35,7 @@ import { NotificationService } from './services/notification.service';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { EnterNewPasswordComponent } from './components/login/reset-password/enter-new-password/enter-new-password.component';
 import { AnalysisComponent } from './components/profile/user-portfolios/user-portfolio/analysis/analysis.component';
+import { ValidateEmailComponent } from './components/login/validate-email/validate-email.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { AnalysisComponent } from './components/profile/user-portfolios/user-por
     PublicProfileComponent,
     EnterNewPasswordComponent,
     AnalysisComponent,
+    ValidateEmailComponent,
   ],
   imports: [
     BrowserModule,
