@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-4_k&+$x-2i+22x0rzw+p46+vm1@c^zh9in4ad+di#@1+6-_j5)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["localhost", "pulsar-stocks.herokuapp.com"]
+ALLOWED_HOSTS = ["localhost", "pulsar-stocks.herokuapp.com", "api.pulsar-stocks.com", "pulsar-stocks.com"]
 
 
 REST_FRAMEWORK = {
