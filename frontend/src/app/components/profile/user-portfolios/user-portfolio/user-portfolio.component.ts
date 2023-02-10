@@ -119,6 +119,7 @@ export class UserPortfolioComponent implements OnInit{
             }
           }
         },
+
         responsive: true,
         maintainAspectRatio: false,
         scales: {

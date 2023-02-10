@@ -27,7 +27,7 @@
             
             <ng-container *ngIf="captchaPublicKey">
                 <re-captcha (resolved)="resolved($event)" [siteKey]="captchaPublicKey"></re-captcha>
-              </ng-container>              
+            </ng-container>              
 
             <p class="error-message"></p>
         </form>
