@@ -10,8 +10,8 @@ class BaseConfig(AppConfig):
         from .HistoricalGatherer import HistoricalGatherer
         from .symboladder import symboladder
         if os.environ.get('RUN_MAIN'):
-            #gatherer = HistoricalGatherer()
-            #adder = symboladder()
+            adder = symboladder()
+            gatherer = HistoricalGatherer()
             pass
         
             
