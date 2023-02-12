@@ -4,13 +4,18 @@
 }
 
 .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .display {
     margin-top: 40px;
-    box-shadow: 0px 0px 10px 5px #003f69;
+    -webkit-box-shadow: 0px 0px 10px 5px #003f69;
+            box-shadow: 0px 0px 10px 5px #003f69;
     border-radius: 20px;
     max-width: 500px;
     width: 80vw;
@@ -18,13 +23,22 @@
     overflow-y: auto;
     padding-top: 10px;
     padding-bottom: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     text-align: center;
 }
 
 .username{
+    background: -webkit-gradient(linear, left top, right top, from(whitesmoke), color-stop(50%, whitesmoke), color-stop(50%, #fdb44b), to(#fdb44b));
+    background: -o-linear-gradient(left, whitesmoke 0%, whitesmoke 50%, #fdb44b 50%, #fdb44b 100%);
     background: linear-gradient(to right, whitesmoke 0%, whitesmoke 50%, #fdb44b 50%, #fdb44b 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -40,6 +54,8 @@
 }
 
 .resend-email-button{
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
     padding: 9px 25px;
     background-color: #00204a;
@@ -59,7 +75,8 @@
 }
 
 .public-portfolio-block .portfolio{
-    box-shadow: 0px 0px 10px 5px #003f69;
+    -webkit-box-shadow: 0px 0px 10px 5px #003f69;
+            box-shadow: 0px 0px 10px 5px #003f69;
     margin-top: 10px;
     border-radius: 20px;
     color: whitesmoke;

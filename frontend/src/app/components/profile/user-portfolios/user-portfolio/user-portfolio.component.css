@@ -4,30 +4,48 @@
 }
 
 .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .display {
     margin-top: 40px;
-    box-shadow: 0px 0px 10px 5px #003f69;
+    -webkit-box-shadow: 0px 0px 10px 5px #003f69;
+            box-shadow: 0px 0px 10px 5px #003f69;
     border-radius: 20px;
     max-width: 500px;
     width: 80vw;
     max-height: 65vh;
     overflow-y: auto;
     padding: 10px 0px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;  
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;  
 }
 
 .option-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 100%;
     height: 100%;
-    justify-content: space-between; 
-    align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; 
+    -webkit-box-align: center; 
+        -ms-flex-align: center; 
+            align-items: center;
     padding: 5px 0px;
 }
 
@@ -38,6 +56,8 @@
     background-color: #00204a;
     border-radius: 15px;
     margin-left: 30px;   
+    -webkit-transition: all ease-in-out 0.2s;   
+    -o-transition: all ease-in-out 0.2s;   
     transition: all ease-in-out 0.2s;
 }
 
@@ -53,6 +73,8 @@
     border-radius: 15px;   
     cursor: pointer;
     margin-right: 5px;   
+    -webkit-transition: all ease-in-out 0.2s;   
+    -o-transition: all ease-in-out 0.2s;   
     transition: all ease-in-out 0.2s;
 }
 
@@ -68,6 +90,8 @@
     border-radius: 15px;   
     cursor: pointer;
     margin-right: 30px;   
+    -webkit-transition: all ease-in-out 0.2s;   
+    -o-transition: all ease-in-out 0.2s;   
     transition: all ease-in-out 0.2s;
 }
 
@@ -83,6 +107,8 @@
     border-radius: 15px;   
     cursor: pointer;
     margin-right: 5px;
+    -webkit-transition: all ease-in-out 0.2s;
+    -o-transition: all ease-in-out 0.2s;
     transition: all ease-in-out 0.2s;
 }
 
@@ -125,9 +151,14 @@
 .main-chart {
     color: white;
     border-radius: 20px;
-    box-shadow: 0px 0px 10px 5px #003f69;
+    -webkit-box-shadow: 0px 0px 10px 5px #003f69;
+            box-shadow: 0px 0px 10px 5px #003f69;
     margin: 10px 0px;
+    -webkit-transition: -webkit-box-shadow 200ms linear;
+    transition: -webkit-box-shadow 200ms linear;
+    -o-transition: box-shadow 200ms linear;
     transition: box-shadow 200ms linear;
+    transition: box-shadow 200ms linear, -webkit-box-shadow 200ms linear;
 }
 
 
@@ -142,18 +173,29 @@
 }
 
 .positions {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     width: 100%;
     margin-top: 25px;
 }
 
 .position {
     width: 80%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-around;
-    box-shadow: 0px 0px 10px 5px #003f69;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-shadow: 0px 0px 10px 5px #003f69;
+            box-shadow: 0px 0px 10px 5px #003f69;
     border-radius: 20px;
     color: whitesmoke;
     margin-top: 15px;
@@ -161,6 +203,8 @@
 }
 
 .all-positions-row{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
@@ -182,7 +226,9 @@
 
 .remove-stock{
     visibility: hidden;
-    align-self: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
     font-size: 18px;
     background-color: #7b0616;
     border-radius: 35%;
@@ -200,6 +246,8 @@
 
 
 .add-stock-button{
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
     padding: 10px 25px;
     background-color: #00204a;
@@ -213,4 +261,3 @@
 .add-stock-button:hover {
     background-color: #003479;
  }
-

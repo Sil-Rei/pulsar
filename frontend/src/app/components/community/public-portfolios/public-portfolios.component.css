@@ -1,12 +1,20 @@
+
 *{
     padding: 0;
     margin: 0;
 }
 
 .container{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .title {
@@ -18,6 +26,7 @@
 }
 
 .portfolio-container{
+    display: -ms-grid;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 10px;
@@ -26,23 +35,44 @@
     overflow-x: hidden;
     overflow-y: scroll;
     padding: 10px;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin: 0 auto;
     -ms-overflow-style: none; 
     scrollbar-width: none;
     opacity: 0;
-    animation: fadeIn 0.5s ease-in-out;
-    animation-fill-mode: forwards;
+    -webkit-animation: fadeIn 0.5s ease-in-out;
+            animation: fadeIn 0.5s ease-in-out;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        -webkit-transform: translateY(20px);
+                transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateY(0px);
+                transform: translateY(0px);
+        opacity: 1;
+    }
 }
 
 @keyframes fadeIn {
     0% {
-        transform: translateY(20px);
+        -webkit-transform: translateY(20px);
+                transform: translateY(20px);
         opacity: 0;
     }
     100% {
-        transform: translateY(0px);
+        -webkit-transform: translateY(0px);
+                transform: translateY(0px);
         opacity: 1;
     }
 }
@@ -53,14 +83,20 @@
 .portfolio{
     margin: 10px auto;
     text-align: center;
-    box-shadow: 0px 0px 10px 5px #003f69;
+    -webkit-box-shadow: 0px 0px 10px 5px #003f69;
+            box-shadow: 0px 0px 10px 5px #003f69;
     border-radius: 20px;
     width: 200px;
 }
 
 .portfolio:hover {
-    box-shadow: 0px 0px 10px 3px #fdb44b;
+    -webkit-box-shadow: 0px 0px 10px 3px #fdb44b;
+            box-shadow: 0px 0px 10px 3px #fdb44b;
+    -webkit-transition: -webkit-box-shadow 500ms linear;
+    transition: -webkit-box-shadow 500ms linear;
+    -o-transition: box-shadow 500ms linear;
     transition: box-shadow 500ms linear;
+    transition: box-shadow 500ms linear, -webkit-box-shadow 500ms linear;
 }
 
 a, a:visited{
@@ -69,9 +105,13 @@ a, a:visited{
 }
 
 a:hover .portfolio-name {
+    background: -webkit-gradient(linear, left top, right top, from(whitesmoke), color-stop(50%, whitesmoke), color-stop(50%, #fdb44b), to(#fdb44b));
+    background: -o-linear-gradient(left, whitesmoke 0%, whitesmoke 50%, #fdb44b 50%, #fdb44b 100%);
     background: linear-gradient(to right, whitesmoke 0%, whitesmoke 50%, #fdb44b 50%, #fdb44b 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    -webkit-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
     transition: all 0.2s ease-in;
 }
 
@@ -87,18 +127,30 @@ a:hover .portfolio-name {
     content: '';
     position: absolute;
     width: 100%;
-    transform: scaleX(0);
+    -webkit-transform: scaleX(0);
+        -ms-transform: scaleX(0);
+            transform: scaleX(0);
     height: 2px;
     bottom: 0;
     left: 0;
     background-color: #fdb44b;
-    transform-origin: bottom right;
+    -webkit-transform-origin: bottom right;
+        -ms-transform-origin: bottom right;
+            transform-origin: bottom right;
+    -webkit-transition: -webkit-transform 0.25s ease-out;
+    transition: -webkit-transform 0.25s ease-out;
+    -o-transition: transform 0.25s ease-out;
     transition: transform 0.25s ease-out;
+    transition: transform 0.25s ease-out, -webkit-transform 0.25s ease-out;
 }
 
 .user:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
+    -webkit-transform: scaleX(1);
+        -ms-transform: scaleX(1);
+            transform: scaleX(1);
+    -webkit-transform-origin: bottom left;
+        -ms-transform-origin: bottom left;
+            transform-origin: bottom left;
 }
 
 .seperator{
@@ -108,8 +160,11 @@ a:hover .portfolio-name {
 
 .positions {
     margin-top: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-around;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
     color: whitesmoke;
     opacity: 0.8;
 }
@@ -120,8 +175,12 @@ a:hover .portfolio-name {
 }
 
 .voting-bar {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-evenly;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
     padding-bottom: 5px;
 }
 
@@ -136,8 +195,12 @@ a:hover .portfolio-name {
     color: #fdb44b;
     background-color: #00204a;
     border-radius: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-self: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
     cursor: pointer;
 }
 

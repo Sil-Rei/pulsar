@@ -5,22 +5,33 @@
 
 
 footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     position: fixed;
     bottom: 0px;
     width: 100%;
     padding-top: 10px;
     background-color: #00204a;
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding-bottom: 5px;
     z-index: -2;
 }
 
 .icons{
     padding: 0%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .icons li {
@@ -34,14 +45,20 @@ footer {
     font-size: 1.75rem;
     margin: 0 10px;
     display: inline-block;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
     transition: 0.5s;
 }
 
 .icons .bi:hover {
-    transform: translateY(-10px);
+    -webkit-transform: translateY(-10px);
+        -ms-transform: translateY(-10px);
+            transform: translateY(-10px);
 }
 
 .links {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 }
 
@@ -55,7 +72,9 @@ footer {
 
 .links a {
     opacity: 0.75;
-    transform: 1s;
+    -webkit-transform: 1s;
+        -ms-transform: 1s;
+            transform: 1s;
     text-decoration: none;
     color: whitesmoke;
 }
@@ -78,7 +97,9 @@ footer {
     width: 100%;
     overflow: hidden;
     line-height: 0;
-    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+            transform: rotate(180deg);
 }
 
 

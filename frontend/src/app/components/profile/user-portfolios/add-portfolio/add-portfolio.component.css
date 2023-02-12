@@ -4,13 +4,18 @@
 }
 
 .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .formular {
     margin-top: 40px;
-    box-shadow: 0px 0px 10px 5px #003f69;
+    -webkit-box-shadow: 0px 0px 10px 5px #003f69;
+            box-shadow: 0px 0px 10px 5px #003f69;
     border-radius: 20px;
     max-width: 500px;
     min-width: 400px;
@@ -18,10 +23,19 @@
     width: 80vw;
     height: 60vh;
     padding: 10px 0px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 .back {
@@ -32,7 +46,8 @@
     border-radius: 15px;
     margin-bottom: -40px;
     margin-left: 65px;
-    align-self: flex-start;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
 }
 
 .back:hover {
@@ -47,23 +62,45 @@
 .heading span {
     display: inline-block;
     color: #fdb44b;
-    animation: spin 8s linear infinite 4s;
+    -webkit-animation: spin 8s linear infinite 4s;
+            animation: spin 8s linear infinite 4s;
+}
+
+@-webkit-keyframes spin {
+    0%{
+        -webkit-transform: rotate(0);
+                transform: rotate(0);
+    }
+    5% {
+        -webkit-transform: rotate(720deg);
+                transform: rotate(720deg);
+    }
+
+    100%{
+        -webkit-transform: rotate(720deg);
+                transform: rotate(720deg);
+    }
 }
 
 @keyframes spin {
     0%{
-        transform: rotate(0);
+        -webkit-transform: rotate(0);
+                transform: rotate(0);
     }
     5% {
-        transform: rotate(720deg);
+        -webkit-transform: rotate(720deg);
+                transform: rotate(720deg);
     }
 
     100%{
-        transform: rotate(720deg);
+        -webkit-transform: rotate(720deg);
+                transform: rotate(720deg);
     }
 }
 
 .submit-button{
+    -webkit-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
     padding: 9px 25px;
     background-color: #00204a;
@@ -98,7 +135,9 @@ input[type=number] {
 }
 
 .bi:hover {
-    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+            transform: scale(1.1);
 }
 
 .fee-choice{
@@ -112,6 +151,8 @@ input[type=number] {
 }
 
 .input-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     padding: 10px 0px;
 }
@@ -122,12 +163,14 @@ input[type=number] {
     color: #fdb44b;
     background-color: #00204a;
     border-radius: 15px 0px 0px 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-self: center;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
 }
 
 #error {
     color: whitesmoke;
 }
-
-
