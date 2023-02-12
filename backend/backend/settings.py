@@ -28,9 +28,9 @@ from datetime import timedelta
 SECRET_KEY = 'django-insecure-4_k&+$x-2i+22x0rzw+p46+vm1@c^zh9in4ad+di#@1+6-_j5)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "https://pulsar-stocks.onrender.com", "api.pulsar-stocks.com", "pulsar-stocks.com"]
+ALLOWED_HOSTS = ["127.0.0.1", "https://pulsar-stocks.onrender.com", "api.pulsar-stocks.com", "pulsar-stocks.com"]
 
 
 REST_FRAMEWORK = {
@@ -172,14 +172,16 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
-
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
 
 CORS_ALLOW_ALL_ORIGINS = True
 

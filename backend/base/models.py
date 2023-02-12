@@ -13,12 +13,12 @@ class User(models.Model):
     
 class PasswordResetToken(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    token_hash = models.CharField(max_length=100, unique=True)
+    token_hash = models.CharField(max_length=200, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
 class EmailValidationToken(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    token = models.CharField(max_length=100, unique=True)
+    token = models.CharField(max_length=200, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
 class Notification(models.Model):
@@ -77,8 +77,8 @@ class Position(models.Model):
 # General db
 class Stock_table(models.Model):
     ticker_symbol = models.CharField(max_length=12)
-    full_name = models.CharField(max_length=30)
-    sector = models.CharField(max_length=30)
+    full_name = models.CharField(max_length=60)
+    sector = models.CharField(max_length=60)
     first_date_entry = models.DateField(blank=True, null=True)
 
     

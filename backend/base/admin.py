@@ -1,5 +1,5 @@
 from django.contrib import admin
-from base.models import User, Portfolio, Position, Stock_table, Stock_price_table, Vote, Notification, PasswordResetToken
+from base.models import User, Portfolio, Position, Stock_table, Stock_price_table, Vote, Notification, PasswordResetToken, EmailValidationToken
 
 # Register your models here.
 admin.site.register(User)
@@ -10,3 +10,4 @@ admin.site.register(Stock_table)
 admin.site.register(Stock_price_table)
 admin.site.register(Notification)
 admin.site.register(PasswordResetToken)
+admin.site.register(EmailValidationToken)
