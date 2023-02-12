@@ -13,12 +13,12 @@ class User(models.Model):
     
 class PasswordResetToken(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    token_hash = models.CharField(max_length=200, unique=True)
+    token_hash = models.CharField(max_length=2000, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
 class EmailValidationToken(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    token = models.CharField(max_length=200, unique=True)
+    token = models.CharField(max_length=2000, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
 class Notification(models.Model):
