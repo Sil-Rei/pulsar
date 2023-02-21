@@ -6,70 +6,84 @@ import { AuthService } from 'src/app/services/auth-service.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
-
 export class RegisterComponent {
   formGroup: FormGroup;
   recaptchaResponse: string;
   captchaPublicKey: string;
-  constructor(private authService:AuthService, public router:Router) {}
+  constructor(private authService: AuthService, public router: Router) {}
 
-  ngOnInit(){
+  ngOnInit() {
+    if (localStorage.getItem('firstTime') != 'false') {
+      alert(
+        "Currently on a free backend server. If you can't see a captcha please, wait until the backend is booted up and reload the page."
+      );
+      localStorage.setItem('firstTime', 'false');
+    }
     this.initForm();
-    this.authService.getCaptchaToken().subscribe(res => {
+    this.authService.getCaptchaToken().subscribe((res) => {
       this.captchaPublicKey = String(res);
     });
   }
 
-  initForm(){
+  initForm() {
     this.formGroup = new FormGroup({
-      username: new FormControl("", [Validators.required]),
-      email: new FormControl("", [Validators.required]),
-      password: new FormControl("", [Validators.required]),
-      passwordCheck : new FormControl("", [Validators.required])
-    })
+      username: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required]),
+      passwordCheck: new FormControl('', [Validators.required]),
+    });
   }
 
   resolved(response: string) {
     this.recaptchaResponse = response;
   }
 
-
-  displayError(error){
-    if(error["username"] != undefined){
-      error = error["username"];
+  displayError(error) {
+    if (error['username'] != undefined) {
+      error = error['username'];
     }
-    document.getElementsByClassName("error-message")[0].innerHTML= error;
+    document.getElementsByClassName('error-message')[0].innerHTML = error;
     setTimeout(() => {
-      document.getElementsByClassName("error-message")[0].innerHTML = "";
+      document.getElementsByClassName('error-message')[0].innerHTML = '';
     }, 3000);
   }
 
-  registerProcess(){
-    if(this.formGroup.valid){
-
+  registerProcess() {
+    if (this.formGroup.valid) {
       // check if passwords are the same
-      if(this.formGroup.value["password"] != this.formGroup.value["passwordCheck"]){
-        this.displayError("Passwords do not match");
+      if (
+        this.formGroup.value['password'] !=
+        this.formGroup.value['passwordCheck']
+      ) {
+        this.displayError('Passwords do not match');
         return;
       }
       // check password length
-      if(String(this.formGroup.value["password"]).length < 8 || String(this.formGroup.value["password"]).length > 45){
-        this.displayError("Password must be at least 8 characters");
+      if (
+        String(this.formGroup.value['password']).length < 8 ||
+        String(this.formGroup.value['password']).length > 45
+      ) {
+        this.displayError('Password must be at least 8 characters');
         return;
       }
 
-      this.authService.register({...this.formGroup.value, recaptchaResponse: this.recaptchaResponse}).subscribe({
-        next: response =>{
-          this.router.navigate(["/sign-in"])
-        },
-        error: error => {
-          this.displayError(error["error"]);
-        }
-    });
-      }else{
-        this.displayError("Please fill in all the details needed");
-      }
+      this.authService
+        .register({
+          ...this.formGroup.value,
+          recaptchaResponse: this.recaptchaResponse,
+        })
+        .subscribe({
+          next: (response) => {
+            this.router.navigate(['/sign-in']);
+          },
+          error: (error) => {
+            this.displayError(error['error']);
+          },
+        });
+    } else {
+      this.displayError('Please fill in all the details needed');
     }
+  }
 }
