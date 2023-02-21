@@ -138,6 +138,28 @@ nav {
     transition: all 0.5s ease-in;
     overflow-y: scroll;
 }
+.notification-wrapper-mobile{
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .notification-wrapper{
+        display: none;
+    }
+    .notification-wrapper-mobile{
+    position: absolute;
+    display: inline-block;
+    bottom: 150px;
+    right:30px;
+    }
+    #notification-icon, #notification-icon-empty{
+        cursor: pointer;
+        padding: 15px 20px;
+        background-color: #fdb44b;
+        border-radius: 50%;
+    } 
+
+}
 
 #notification-dropdown p {
     opacity: 0.9;
