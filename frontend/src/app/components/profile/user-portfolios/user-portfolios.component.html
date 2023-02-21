@@ -5,7 +5,7 @@
     <div class="container">
 
         <div class="overview">
-
+            <h3 id="verified-email" *ngIf="!isVerified">your email is not verified. if you need a new email, please visit your profile page.</h3>
         </div>
         <div class="portfolios" *ngIf="this.userPortfolios">
             <div class="portfolio" *ngFor="let portfolio of this.userPortfolios" [routerLink]='portfolio["portfolio_name"]'>

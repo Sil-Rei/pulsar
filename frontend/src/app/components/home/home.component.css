@@ -36,6 +36,26 @@
   .container{
     display: flex;
   }
+
+  .mobile-container{
+    display: none;
+    color: #fff;
+    font-size: 3rem;
+  }
+  .mobile-container span{
+    color: #fdb44b;
+  }
+  @media (max-width: 700px) {
+    .container{
+      display: none;
+    }
+    .mobile-container{
+      width: 100%;
+      display: inline-block;
+      text-align: center;
+    }
+  }
+
   .container .static-txt{
     color: #fff;
     font-size: 60px;

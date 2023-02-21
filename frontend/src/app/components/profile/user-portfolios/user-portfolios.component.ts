@@ -10,6 +10,7 @@ import { apiUrl } from 'src/environments/environments';
 })
 export class UserPortfoliosComponent implements OnInit{
   name: string = localStorage.getItem("username");
+  isVerified: boolean;
 
   userPortfolios;  
 
@@ -19,6 +20,7 @@ export class UserPortfoliosComponent implements OnInit{
   ngOnInit() {
     this.service.getUserData().subscribe(data=>{
       this.userPortfolios = Array.from(data[0]["portfolios"]);
+      this.isVerified = data[0]["verified_email"];
     })
   }
 }

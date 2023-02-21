@@ -16,6 +16,11 @@ export class UserDataService {
     return this.http.post(`${apiUrl}user/validate_email`, {token: token});
   }
 
+  public getNewVerificationEmail(){
+    console.log("send");
+    return this.http.get(`${apiUrl}user/new_verification_email`);
+  }
+
   public resetUserPassword(email: string){
     return this.http.post(`${apiUrl}user/reset_password`, {email: email});
   }

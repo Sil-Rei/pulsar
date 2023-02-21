@@ -95,11 +95,14 @@ footer {
 
 @media(max-width: 600px){
     .waves {
+        overflow: hidden;
+        transform: scale(1.5) rotate(180deg);
         bottom: 50px;
         z-index: -1;
     }
 
     footer {
-        border-radius: 63px 63px 0px 0px;
+        background-color: #00204A;
+        border-radius: 150px 150px 0px 0px;
     }
 }
