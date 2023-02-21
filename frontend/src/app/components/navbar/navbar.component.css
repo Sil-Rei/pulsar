@@ -2,22 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap');
 
 *{
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 nav {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    align-items: center;
+    justify-content: space-between;
     color: whitesmoke;
 }
 
@@ -26,8 +19,6 @@ nav {
     font-size: 2rem;
     margin-left: .5rem;
     cursor: pointer;
-    -webkit-transition: all .2s ease-in-out;
-    -o-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
 }
 .logo span {
@@ -36,23 +27,15 @@ nav {
     color: #fdb44b;
 }
 .logo:hover {
-    -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-            transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 .navbar-links ul{
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    align-items: center;
     
 }
 .navbar-links {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     
     
@@ -67,8 +50,6 @@ nav {
     text-decoration: none;
     padding: 1rem;
     display: block;
-    -webkit-transition: all 0.3s ease 0s;
-    -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
  }
 
@@ -77,8 +58,6 @@ nav {
  }
 
 .nav-button {
-    -webkit-transition: all 0.3s ease 0s;
-    -o-transition: all 0.3s ease 0s;
     transition: all 0.3s ease 0s;
     padding: 9px 25px;
     background-color: #fdb44b;
@@ -99,13 +78,8 @@ nav {
     top: 1rem;
     right: 1rem;
     display: none;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    flex-direction: column;
+    justify-content: space-between;
     width: 30px;
     height: 21px;
     cursor: pointer;
@@ -152,8 +126,7 @@ nav {
     margin-right: 100px;
     margin-top: 5px;
     border-radius: 20px;
-    -webkit-box-shadow: 0px 0px 10px 5px #003f69;
-            box-shadow: 0px 0px 10px 5px #003f69;
+    box-shadow: 0px 0px 10px 5px #003f69;
     background-color: #005792;
     padding: 10px;
     position: absolute;
@@ -162,10 +135,30 @@ nav {
     z-index:1;
     display: none;
     text-align: center;
-    -webkit-transition: all 0.5s ease-in;
-    -o-transition: all 0.5s ease-in;
     transition: all 0.5s ease-in;
     overflow-y: scroll;
+}
+.notification-wrapper-mobile{
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .notification-wrapper{
+        display: none;
+    }
+    .notification-wrapper-mobile{
+    position: absolute;
+    display: inline-block;
+    bottom: 150px;
+    right:30px;
+    }
+    #notification-icon, #notification-icon-empty{
+        cursor: pointer;
+        padding: 15px 20px;
+        background-color: #fdb44b;
+        border-radius: 50%;
+    } 
+
 }
 
 #notification-dropdown p {
@@ -223,8 +216,6 @@ nav {
 
  @media (max-width: 600px){
     .toggle-button {
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
     }
 
@@ -235,21 +226,13 @@ nav {
     }
 
     nav {
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
-        -webkit-box-align: start;
-            -ms-flex-align: start;
-                align-items: flex-start;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .navbar-links ul {
         width: 100%;
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-                flex-direction: column;
+        flex-direction: column;
     }
 
     .navbar-links li {
@@ -261,8 +244,6 @@ nav {
     }
 
     .navbar-links.active {
-        display: -webkit-box;
-        display: -ms-flexbox;
         display: flex;
         margin-bottom: 15px;
     }

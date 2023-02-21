@@ -1,46 +1,107 @@
 <nav>
-    <p class="logo" routerLink="">pul<span>sar.</span></p>
-    <a class="toggle-button" (click)="toggleMenu()">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </a>
-    <div *ngIf="!this.isSignedIn; else signedIn" class="navbar-links">
-      <ul>
-        <li><a routerLink="/concept">concept</a></li>
-        <li><button routerLink="/register" type="button" class="nav-button">sign up</button></li>
-      </ul>
-    </div>
-  </nav>
-  
-  <ng-template #signedIn>
-    <div class="navbar-links" (click)="toggleMenu()">
-      <ul>
-        <li><a (click)="logout()">logout</a></li>
-        <li><a routerLink="/community/featured-portfolios">community</a></li>
-        <li><a routerLink="/profile/portfolios">portfolios</a></li>
+  <p class="logo" routerLink="">pul<span>sar.</span></p>
+  <a class="toggle-button" (click)="toggleMenu()">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </a>
+  <div *ngIf="!this.isSignedIn; else signedIn" class="navbar-links">
+    <ul>
+      <li><a routerLink="/graphs">all graphs</a></li>
+      <li><a routerLink="/concept">concept</a></li>
+      <li>
+        <button routerLink="/register" type="button" class="nav-button">
+          sign up
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-        <li class="notification-wrapper">
+<ng-template #signedIn>
+  <div class="navbar-links" (click)="toggleMenu()">
+    <ul>
+      <li><a (click)="logout()">logout</a></li>
+      <li><a routerLink="/community/featured-portfolios">community</a></li>
+      <li><a routerLink="/profile/portfolios">portfolios</a></li>
 
-          <i class="bi-bell" id="notification-icon-empty" (click)="toggleNotifybar()"></i>
-          <div class="bell-wrapper">
-            <i class="bi-bell-fill" id="notification-icon" (click)="toggleNotifybar()"></i>
-            <i class="bi-dot" id="dot"></i>
+      <li class="notification-wrapper">
+        <i
+          class="bi-bell"
+          id="notification-icon-empty"
+          (click)="toggleNotifybar()"
+        ></i>
+        <div class="bell-wrapper">
+          <i
+            class="bi-bell-fill"
+            id="notification-icon"
+            (click)="toggleNotifybar()"
+          ></i>
+          <i class="bi-dot" id="dot"></i>
+        </div>
+
+        <div id="notification-dropdown">
+          <p class="mark-all-read" (click)="markAllAsRead()">
+            mark all as read
+          </p>
+          <hr />
+          <div
+            class="notification-item"
+            *ngFor="let notification of this.notifications"
+          >
+            <i
+              class="bi-x-circle delete-notification"
+              (click)="deleteNotification(notification)"
+            ></i>
+            <p [class.important]="notification['is_important']">
+              {{ notification["message"] }}
+            </p>
+            <p>{{ notification["timestamp"] }}</p>
+            <hr />
           </div>
-         
-          <div id="notification-dropdown">
-            <p class="mark-all-read" (click)="markAllAsRead()">mark all as read</p>
-            <hr>
-            <div class="notification-item" *ngFor="let notification of this.notifications">
-                <i class="bi-x-circle delete-notification" (click)="deleteNotification(notification)"></i>
-                <p [class.important] = "notification['is_important']" >{{notification["message"]}}</p>
-                <p>{{notification["timestamp"]}}</p>
-              <hr>
-            </div>
-          </div>
-        </li>
+        </div>
+      </li>
 
-        <li><button routerLink="/profile" type="button" class="nav-button">profile</button></li>
-      </ul>
+      <li>
+        <button routerLink="/profile" type="button" class="nav-button">
+          profile
+        </button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="notification-wrapper-mobile">
+    <i
+      class="bi-bell"
+      id="notification-icon-empty"
+      (click)="toggleNotifybar()"
+    ></i>
+    <div class="bell-wrapper">
+      <i
+        class="bi-bell-fill"
+        id="notification-icon"
+        (click)="toggleNotifybar()"
+      ></i>
+      <i class="bi-dot" id="dot"></i>
     </div>
-  </ng-template>
+
+    <div id="notification-dropdown">
+      <p class="mark-all-read" (click)="markAllAsRead()">mark all as read</p>
+      <hr />
+      <div
+        class="notification-item"
+        *ngFor="let notification of this.notifications"
+      >
+        <i
+          class="bi-x-circle delete-notification"
+          (click)="deleteNotification(notification)"
+        ></i>
+        <p [class.important]="notification['is_important']">
+          {{ notification["message"] }}
+        </p>
+        <p>{{ notification["timestamp"] }}</p>
+        <hr />
+      </div>
+    </div>
+  </div>
+</ng-template>
